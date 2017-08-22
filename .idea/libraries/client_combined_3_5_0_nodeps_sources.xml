@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="client-combined-3.5.0-nodeps-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/client-combined-3.5.0-nodeps.jar!/" />
+      <root url="jar://$PROJECT_DIR$/selenium-server-standalone-3.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/client-combined-3.5.0-nodeps-sources.zip!/" />
+    </SOURCES>
+  </library>
+</component>
