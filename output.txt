@@ -1,0 +1,168 @@
+------------------------Test Begin------------------------
+===========================================
+Static Web-Content test
+
+Title: Illuminate Education
+No h1 header
+Footer: Copyright © 2017 Illuminate Education Inc. All Rights Reserved
+www.illuminateed.com
+===========================================
+
+
+===========================================
+Login Test
+
+Login Failed Invalid username or password.
+*No pop-up Alter Window Present*
+===========================================
+
+
+===========================================
+Google Login Test
+
+Redirect to : Forwarding ... URL is : https://accounts.google.com/o/oauth2/auth?state=eyJpbnN0YW5jZU5hbWUiOiJkZW1vIn0%3D&scope=email+openid+profile&response_type=code&approval_prompt=auto&client_id=461023085744-u3v63qm5vn7bo565dmbodejqstpoihha.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fuser.illuminateed.net%2Fapi%2Fv3%2Foauth%2Filluminate_google%2Fcallback&authuser=-1
+===========================================
+
+
+===========================================
+Button Test
+
+Redirect to : Sign in - Google Accounts URL is : https://accounts.google.com/signin/oauth/identifier?client_id=461023085744-u3v63qm5vn7bo565dmbodejqstpoihha.apps.googleusercontent.com&as=6af47da192cc701f&destination=https%3A%2F%2Fuser.illuminateed.net&approval_state=!ChRCU0cyQkw4dE02aDVINmhGVDhSeBIfNDR1S2FvVWtpUEFjb1BPVmxUTmg0eGRNSFNtTDRCVQ%E2%88%99ADiIGyEAAAAAWZ0lGr16DSiL10_ffyho2Qb0QiUzH3Gc&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE8gJcrTfMWQcpPhBqj4P73j9dg7IA&flowName=GeneralOAuthFlow
+Redirect to : Illuminate Ops (@IlluminateOps) | Twitter URL is : https://twitter.com/IlluminateOps
+Redirect to : Illuminate Education (@Illuminateed) | Twitter URL is : https://twitter.com/IlluminateEd
+Redirect to : Illuminate Education - Home | Facebook URL is : https://www.facebook.com/illuminateeducation
+===========================================
+
+
+===========================================
+hyper Link Test
+
+******************************
+HyperLink text : Forgot your password?
+Redirect to https://demo.illuminateed.com/live/?SisForgotPassword
+Back to prev page
+******************************
+
+******************************
+HyperLink text : www.illuminateed.com
+Redirect to https://www.illuminateed.com/
+Back to prev page
+******************************
+
+******************************
+HyperLink text : release notes
+Redirect to https://support.illuminateed.com/hc/en-us/categories/200421328-Release-Notes
+Back to prev page
+******************************
+
+******************************
+HyperLink text : Back to School Illuminations Newsletter
+Redirect to http://go.illuminateed.com/webmail/124881/149235923/d9829cd866e2e8ef5a346ceaf6ce065e30b440e343cd66d03457f783511b6e29
+Back to prev page
+******************************
+
+******************************
+HyperLink text : Webinars
+Redirect to https://www.illuminateed.com/resources/training/
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 8/17
+Redirect to https://register.gotowebinar.com/#register/9021318465932069890
+Back to prev page
+******************************
+
+Minor Exception Occurs: Can't back to prev page in 1 click
+******************************
+HyperLink text : 8/31
+Redirect to https://register.gotowebinar.com/#register/7516434495334618883?source=ATD
+Back to prev page
+******************************
+
+Minor Exception Occurs: Can't back to prev page in 1 click
+******************************
+HyperLink text : 8/17,8/24,8/31,9/7,9/14,9/21,9/28
+Redirect to https://register.gotowebinar.com/#rt/6610931693431525634?source=ATD
+Back to prev page
+******************************
+
+Minor Exception Occurs: Can't back to prev page in 1 click
+******************************
+HyperLink text : 8/24
+Redirect to https://register.gotowebinar.com/#register/7020515168649462786?source=ATD
+Back to prev page
+******************************
+
+Minor Exception Occurs: Can't back to prev page in 1 click
+******************************
+HyperLink text : 9/7,9/20/10/2,10/20
+Redirect to https://register.gotowebinar.com/#rt/5012684890778928385?source=ATD
+Back to prev page
+******************************
+
+Minor Exception Occurs: Can't back to prev page in 1 click
+******************************
+HyperLink text : More
+Redirect to https://www.illuminateed.com/resources/training/
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 8/15-8/17
+Redirect to https://www.eventbrite.com/e/illuminate-education-workshop-michigan-assessment-institute-3-days-tickets-34896036986
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 9/13
+Redirect to https://www.eventbrite.com/e/illuminate-education-workshop-norcal-calpads-series-3-days-tickets-34870846641
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 9/19-9/20
+Redirect to https://www.eventbrite.com/e/two-day-illuminate-bi-tool-workshop-in-irvine-tickets-34528612008
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 9/19
+Redirect to https://www.eventbrite.com/e/illuminate-education-workshop-rethink-accountability-bay-area-tickets-34813652572
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 10/23-10/24
+Redirect to https://www.eventbrite.com/e/two-day-illuminate-bi-tool-workshop-in-los-angeles-tickets-37063711559
+Back to prev page
+******************************
+
+******************************
+HyperLink text : more
+Redirect to https://www.illuminateed.com/resources/training/
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 11/14
+Redirect to https://www.eventbrite.com/e/illuminate-education-equity-symposium-san-bernardino-tickets-36485625488
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 11/6-11/7
+Redirect to https://www.illuminateed.com/event/2017-illuminate-user-conference-midwest-november/
+Back to prev page
+******************************
+
+******************************
+HyperLink text : 2/1-2/2
+Redirect to https://www.illuminateed.com/event/2018-illuminate-user-conference-california/
+Back to prev page
+******************************
+
+===========================================
+
+
+------------------------ Test End ------------------------
