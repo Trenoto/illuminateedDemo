@@ -5,11 +5,15 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class AutoTest {
     private WebDriver driver;
@@ -18,6 +22,8 @@ public class AutoTest {
 
     public AutoTest(String url) {
         driver = new ChromeDriver();
+        //don't use this with explicit waits
+//        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         driver.get(url);
         this.mainPage = driver.getCurrentUrl();
         this.mainHandler = driver.getWindowHandle();
@@ -36,13 +42,13 @@ public class AutoTest {
         }
 
         try{
-            System.out.println("Header: "+ driver.findElement(By.tagName("h1")).getText().toString() );
+            System.out.println("Header: "+ driver.findElement(By.tagName("h1")).getText() );
         }catch(NoSuchElementException e){
             System.out.println("No h1 header");
         }
 
         try{
-            System.out.println("Footer: "+ driver.findElement(By.id("footer")).findElement(By.id("footer-copyright")).getText().toString());
+            System.out.println("Footer: "+ driver.findElement(By.id("footer")).findElement(By.id("footer-copyright")).getText());
         }catch(NoSuchElementException e){
             System.out.println("No footer");
         }
@@ -59,22 +65,22 @@ public class AutoTest {
      * @param  password a string
      * *
      */
-    public void loginTest(String username, String password) throws InterruptedException{
+    public void loginTest(String username, String password){
         System.out.println("===========================================");
         System.out.println("Login Test\n");
         driver.findElement(By.id("username")).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.id("button_next")).click();
-        Thread.sleep(1000);
-        if (driver.getCurrentUrl().equals(mainPage))
-            System.out.println("Login Failed " + driver.findElement(By.xpath("//*[@id='invalid_login']")).getText().toString());
-        else
-            System.out.println("Login Succeed");
-
-        try{
-            System.out.println(driver.switchTo().alert().toString());
-        }catch (NoAlertPresentException ex){
-            System.out.println("*No pop-up Alter Window Present*");
+        try {
+            WebElement lf = driver.findElement(By.xpath("//*[@id='invalid_login']"));
+            (new WebDriverWait(driver,10)).
+                    until(ExpectedConditions.textToBePresentInElement(lf,"Invalid username or password."));
+            System.out.println("Login Failed " + lf.getText());
+        }catch (NoSuchElementException ex) {
+            if (!driver.getCurrentUrl().equals(mainPage))
+                System.out.println("Login Succeed");
+            else
+                System.out.println("*No error message Present*");
         }
 
         System.out.println("===========================================\n\n");
@@ -98,7 +104,7 @@ public class AutoTest {
      * @return      void no return
      * *
      */
-    public void openHyperLink(String hyperText) throws InterruptedException{
+    public void openHyperLink(String hyperText){
         System.out.println("******************************");
         System.out.println("HyperLink text : " + hyperText);
         try {
@@ -107,7 +113,6 @@ public class AutoTest {
         }catch (NoSuchElementException ex){
             System.out.println(ex + "Can't locate " + hyperText);
         }
-        Thread.sleep(1000);
         backToLastPage();
         System.out.println("******************************\n");
 
@@ -125,7 +130,7 @@ public class AutoTest {
         System.out.println("hyper Link Test\n");
         for (String hyperText: hyperTexts){
             openHyperLink(hyperText);
-            Thread.sleep(1000);
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             try {
                 Assert.assertTrue(driver.getCurrentUrl().equals(mainPage));
             }catch(AssertionError ex){
@@ -133,7 +138,6 @@ public class AutoTest {
                 File pic = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
                 FileUtils.copyFile(pic,new File("./screenshot.png"));
                 driver.get(mainPage);
-                Thread.sleep(1000);
             }
 
         }
@@ -147,15 +151,14 @@ public class AutoTest {
      * Test all Buttons
      * *
      */
-    public void testSocialBtn() throws InterruptedException{
+    public void testSocialBtn(){
         System.out.println("===========================================");
         System.out.println("Button Test\n");
 
         List<WebElement> btns = driver.findElement(By.className("social_media")).findElements(By.tagName("a"));
 
         for (WebElement btn: btns){
-            btn.click();
-            Thread.sleep(100);
+            btn.click();;
         }
         Set<String> handles = driver.getWindowHandles();
         Iterator<String> iterator = handles.iterator();
@@ -164,7 +167,6 @@ public class AutoTest {
         while(iterator.hasNext()){
             driver.switchTo().window(iterator.next());
             System.out.println("Redirect to : " + driver.getTitle() + " URL is : " + driver.getCurrentUrl());
-            Thread.sleep(100);
         }
         System.out.println("===========================================\n\n");
         driver.switchTo().window(mainHandler);
@@ -176,19 +178,21 @@ public class AutoTest {
      * Test google Login Page
      * *
      */
-    public void testGoogleLogin() throws InterruptedException{
+    public void testGoogleLogin(){
         System.out.println("===========================================");
         System.out.println("Google Login Test\n");
         driver.findElement(By.xpath("//*[@id='ied-login-logo']")).click();
-        Thread.sleep(1000);
+
+//        WebDriverWait ww = new WebDriverWait(driver,10);
+//        ww.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(driver.findElement(By.cssSelector("iframe[title='Sign in - Google Accounts']"))));
         Set<String> handles = driver.getWindowHandles();
         Iterator<String> iterator = handles.iterator();
+        System.out.println(handles.size());
 
         iterator.next();
         while(iterator.hasNext()){
             driver.switchTo().window(iterator.next());
             System.out.println("Redirect to : " + driver.getTitle() + " URL is : " + driver.getCurrentUrl());
-            Thread.sleep(500);
         }
 
         System.out.println("===========================================\n\n");
